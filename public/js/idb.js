@@ -1,22 +1,15 @@
-const indexedDB =
-    window.indexedDB ||
-    window.mozIndexedDB ||
-    window.webKitIndexedDB ||
-    window.msIndexedDB ||
-    window.shimIndexedDB;
-
-let deb;
+let db;
 const request = indexedDB.open('click_pocket', 1);
 
 request.onupgradeneeded = function(e) {
     const db = e.target.result;
-    db.createObjectStore('pending', { autoincrement: true })
+    db.createObjectStore('pending', { autoIncrement: true })
 };
 
 request.onsuccess = function(e) {
     db = e.target.result;
     if (navigator.onLine) {
-        checkDatabase();
+        uploadTransaction();
     }
 };
 
@@ -30,7 +23,7 @@ function saveTransactionRecord(record) {
     transactionObjectStore.add(record);
 }
 
-function checkDatabase() {
+function uploadTransaction() {
     const transaction = db.transaction(['pending'], 'readwrite');
     const store = transaction.objectStore('pending');
     const getAll = store.getAll();
@@ -60,4 +53,4 @@ function checkDatabase() {
     };
 }
 
-window.addEventListener('online', checkDatabase);
+window.addEventListener('online', uploadTransaction);
