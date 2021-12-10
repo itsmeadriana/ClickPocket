@@ -37,7 +37,7 @@ https://obscure-dawn-55524.herokuapp.com
  - MongoDB Compass (useful for debugging)
  - Heroku
  - Amazon Web Services ... -_-
- - "The Lion the 
+ - "The Lion the Witch and the Wardrobe" score that played in the background as I worked.
 
 ## Github:
 [https://github.com/itsmeadriana](https://github.com/itsmeadriana)
