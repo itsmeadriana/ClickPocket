@@ -16,7 +16,7 @@ request.onupgradeneeded = function(e) {
 request.onsuccess = function(e) {
     db = e.target.result;
     if (navigator.onLine) {
-        uploadTransaction();
+        checkDatabase();
     }
 };
 
